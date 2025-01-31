@@ -1,118 +1,195 @@
 <html>
-<head>
-    <title>ArfaRotan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
-    <style>
-        body {
+ <head>
+  <title>
+   ArfaRotan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
             font-family: 'Roboto', sans-serif;
         }
-    </style>
-</head>
-<body class="bg-gray-100">
-    <nav class="bg-blue-800 shadow">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a class="text-xl font-bold text-white" href="#">ArfaRotan</a>
-            <div class="relative">
-                <button id="languageButton" class="text-white focus:outline-none">
-                    <i class="fas fa-ellipsis-v"></i>
-                </button>
-                <div id="languageMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
-                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" onclick="changeLanguage('id')">Bahasa Indonesia</a>
-                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" onclick="changeLanguage('en')">English</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <header class="bg-gradient-to-r from-blue-400 to-blue-600 text-white text-center py-20">
-        <div class="container mx-auto">
-            <h1 id="headerTitle" class="text-5xl font-bold">Selamat Datang di ArfaRotan</h1>
-            <p id="headerSubtitle" class="mt-4 text-xl">Temukan berbagai produk rotan berkualitas tinggi</p>
-        </div>
-    </header>
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="square.jpg" alt="Gambar tikar rotan square" class="w-full h-64 object-cover"/>
-                    <div class="p-6">
-                        <h5 class="text-2xl font-bold">Tikar Rotan Square</h5>
-                        <p class="mt-4 text-gray-600 text-lg">
-                            Harga: Rp 500.000
-                            <br/>
-                            <span class="text-sm text-gray-500">(Harga untuk ukuran paling kecil)</span>
-                        </p>
-                        <a href="pemesanan.html" class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block">Beli Sekarang</a>
-                    </div>
-                </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="open.jpg" alt="Gambar tikar rotan open" class="w-full h-64 object-cover"/>
-                    <div class="p-6">
-                        <h5 class="text-2xl font-bold">Tikar Rotan Open</h5>
-                        <p class="mt-4 text-gray-600 text-lg">
-                            Harga: Rp 450.000
-                            <br/>
-                            <span class="text-sm text-gray-500">(Harga untuk ukuran paling kecil)</span>
-                        </p>
-                        <a href="pemesanan.html" class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block">Beli Sekarang</a>
-                    </div>
-                </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="sita.jpg" alt="Gambar tikar rotan sita" class="w-full h-64 object-cover"/>
-                    <div class="p-6">
-                        <h5 class="text-2xl font-bold">Tikar Rotan Sita</h5>
-                        <p class="mt-4 text-gray-600 text-lg">
-                            Harga: Rp 400.000
-                            <br/>
-                            <span class="text-sm text-gray-500">(Harga untuk ukuran paling kecil)</span>
-                        </p>
-                        <a href="pemesanan.html" class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block">Beli Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-20 bg-gray-200">
-        <div class="container mx-auto px-4">
-            <h2 id="purchaseTitle" class="text-4xl font-bold text-center mb-10">Cara Pembelian</h2>
-            <div class="max-w-3xl mx-auto">
-                <ol id="purchaseSteps" class="list-decimal list-inside space-y-6 text-gray-700 text-lg">
-                    <li>Pilih produk yang Anda inginkan dari daftar produk di atas.</li>
-                    <li>Klik tombol "Beli Sekarang" pada produk yang Anda pilih.</li>
-                    <li>Anda akan diarahkan ke halaman pemesanan.</li>
-                    <li>Isi formulir pemesanan dengan lengkap.</li>
-                    <li>Kirim formulir tersebut ke nomor WhatsApp kami.</li>
-                    <li>Tunggu konfirmasi dari kami mengenai ketersediaan produk dan harga.</li>
-                    <li>Lakukan pembayaran sesuai dengan instruksi yang diberikan.</li>
-                    <li>Produk akan dikirim ke alamat Anda setelah pembayaran diterima.</li>
-                </ol>
-            </div>
-        </div>
-    </section>
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 id="visionTitle" class="text-4xl font-bold text-center mb-10">Visi Kami</h2>
-            <p id="visionText" class="max-w-3xl mx-auto text-center text-gray-700 text-lg">
-                Menjadi penyedia produk rotan berkualitas tinggi terkemuka, dikenal karena komitmen kami terhadap keberlanjutan dan keahlian.
-            </p>
-        </div>
-    </section>
-    <section class="py-20 bg-gray-200">
-        <div class="container mx-auto px-4">
-            <h2 id="missionTitle" class="text-4xl font-bold text-center mb-10">Misi Kami</h2>
-            <p id="missionText" class="max-w-3xl mx-auto text-center text-gray-700 text-lg">
-                Menyediakan produk rotan yang luar biasa yang meningkatkan keindahan dan fungsionalitas ruang pelanggan kami, sambil mempromosikan praktik berkelanjutan dan mendukung pengrajin lokal.
-            </p>
-        </div>
-    </section>
-    <footer class="bg-blue-800 text-white py-10">
-        <div class="container mx-auto px-4 text-center">
-            <p>© 2017 PT Perintis Arfa Abadi. All rights reserved.</p>
-        </div>
-    </footer>
-    <script>
-        document.getElementById('languageButton').addEventListener('click', function() {
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <nav class="bg-blue-800 shadow">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a class="text-xl font-bold text-white" href="#">
+     ArfaRotan
+    </a>
+    <div class="relative">
+     <button class="text-white focus:outline-none" id="languageButton">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+     <div class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20" id="languageMenu">
+      <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#" onclick="changeLanguage('id')">
+       Bahasa Indonesia
+      </a>
+      <a class="block px-4 py-2 text-gray-800 hover:bg-gray-200" href="#" onclick="changeLanguage('en')">
+       English
+      </a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <header class="bg-gradient-to-r from-blue-400 to-blue-600 text-white text-center py-20">
+   <div class="container mx-auto">
+    <h1 class="text-5xl font-bold" id="headerTitle">
+     Selamat Datang di ArfaRotan
+    </h1>
+    <p class="mt-4 text-xl" id="headerSubtitle">
+     Temukan berbagai produk rotan berkualitas tinggi
+    </p>
+   </div>
+  </header>
+  <section class="py-20">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img alt="Gambar tikar rotan square" class="w-full h-64 object-cover" height="400" src="square.jpg" width="600"/>
+      <div class="p-6">
+       <h5 class="text-2xl font-bold">
+        Tikar Rotan Square
+       </h5>
+       <p class="mt-4 text-gray-600 text-lg">
+        Harga: Rp 150.000
+        <br/>
+        <span class="text-sm text-gray-500">
+         (Harga per meter persegi)
+        </span>
+       </p>
+       <a class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block" href="pemesanan.html">
+        Beli Sekarang
+       </a>
+      </div>
+     </div>
+     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img alt="Gambar tikar rotan open" class="w-full h-64 object-cover" height="400" src="open.jpg" width="600"/>
+      <div class="p-6">
+       <h5 class="text-2xl font-bold">
+        Tikar Rotan Open
+       </h5>
+       <p class="mt-4 text-gray-600 text-lg">
+        Harga: Rp 220.000
+        <br/>
+        <span class="text-sm text-gray-500">
+         (Harga per meter persegi)
+        </span>
+       </p>
+       <a class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block" href="pemesanan.html">
+        Beli Sekarang
+       </a>
+      </div>
+     </div>
+     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img alt="Gambar tikar rotan sita" class="w-full h-64 object-cover" height="400" src="xita.jpg" width="600"/>
+      <div class="p-6">
+       <h5 class="text-2xl font-bold">
+        Tikar Rotan Xita
+       </h5>
+       <p class="mt-4 text-gray-600 text-lg">
+        Harga: Rp 220.000
+        <br/>
+        <span class="text-sm text-gray-500">
+         (Harga per meter persegi)
+        </span>
+       </p>
+       <a class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block" href="pemesanan.html">
+        Beli Sekarang
+       </a>
+      </div>
+     </div>
+     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img alt="Gambar tikar rotan close" class="w-full h-64 object-cover" height="400" src="close.jpg" width="600"/>
+      <div class="p-6">
+       <h5 class="text-2xl font-bold">
+        Tikar Rotan Close
+       </h5>
+       <p class="mt-4 text-gray-600 text-lg">
+        Harga: Rp 130.000
+        <br/>
+        <span class="text-sm text-gray-500">
+         (Harga per meter persegi)
+        </span>
+       </p>
+       <a class="mt-6 w-full bg-blue-500 text-white py-3 px-6 rounded text-center block" href="pemesanan.html">
+        Beli Sekarang
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="py-20 bg-gray-200">
+   <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-10" id="purchaseTitle">
+     Cara Pembelian
+    </h2>
+    <div class="max-w-3xl mx-auto">
+     <ol class="list-decimal list-inside space-y-6 text-gray-700 text-lg" id="purchaseSteps">
+      <li>
+       Pilih produk yang Anda inginkan dari daftar produk di atas.
+      </li>
+      <li>
+       Klik tombol "Beli Sekarang" pada produk yang Anda pilih.
+      </li>
+      <li>
+       Anda akan diarahkan ke halaman pemesanan.
+      </li>
+      <li>
+       Isi formulir pemesanan dengan lengkap.
+      </li>
+      <li>
+       Kirim formulir tersebut ke nomor WhatsApp kami.
+      </li>
+      <li>
+       Tunggu konfirmasi dari kami mengenai ketersediaan produk dan harga.
+      </li>
+      <li>
+       Lakukan pembayaran sesuai dengan instruksi yang diberikan.
+      </li>
+      <li>
+       Produk akan dikirim ke alamat Anda setelah pembayaran diterima.
+      </li>
+     </ol>
+    </div>
+   </div>
+  </section>
+  <section class="py-20 bg-white">
+   <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-10" id="visionTitle">
+     Visi Kami
+    </h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-700 text-lg" id="visionText">
+     Menjadi penyedia produk rotan berkualitas tinggi terkemuka, dikenal karena komitmen kami terhadap keberlanjutan dan keahlian.
+    </p>
+   </div>
+  </section>
+  <section class="py-20 bg-gray-200">
+   <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-10" id="missionTitle">
+     Misi Kami
+    </h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-700 text-lg" id="missionText">
+     Menyediakan produk rotan yang luar biasa yang meningkatkan keindahan dan fungsionalitas ruang pelanggan kami, sambil mempromosikan praktik berkelanjutan dan mendukung pengrajin lokal.
+    </p>
+   </div>
+  </section>
+  <footer class="bg-blue-800 text-white py-10">
+   <div class="container mx-auto px-4 text-center">
+    <p>
+     © 2017 PT Perintis Arfa Abadi. All rights reserved.
+    </p>
+    <p>
+     Email: <a class="text-blue-300" href="mailto:ptperintisarfaabadi@gmail.com">ptperintisarfaabadi@gmail.com</a>
+    </p>
+   </div>
+  </footer>
+  <script>
+   document.getElementById('languageButton').addEventListener('click', function() {
             var menu = document.getElementById('languageMenu');
             menu.classList.toggle('hidden');
         });
@@ -156,6 +233,6 @@
                 document.getElementById('missionText').innerText = 'To provide exceptional rattan products that enhance the beauty and functionality of our customers\' spaces, while promoting sustainable practices and supporting local artisans.';
             }
         }
-    </script>
-</body>
+  </script>
+ </body>
 </html>
