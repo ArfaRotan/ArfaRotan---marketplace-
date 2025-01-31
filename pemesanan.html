@@ -1,15 +1,14 @@
-<html>
+<html lang="id">
 <head>
-    <title>Pemesanan ArfaRotan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agara Rotan Kalkulator Harga</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-        }
-        .navbar-brand {
-            font-weight: bold;
         }
         .btn-primary {
             background-color: #1E3A8A;
@@ -39,114 +38,6 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <script>
-        const prices = {
-            "Tikar Rotan Square": {
-                AB: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                },
-                BC: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                }
-            },
-            "Tikar Rotan Open": {
-                AB: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                },
-                BC: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                }
-            },
-            "Tikar Rotan Sita": {
-                AB: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                },
-                BC: {
-                    14: 520000,
-                    16: 700000,
-                    18: 900000,
-                    20: 1100000,
-                    24: 1500000,
-                    25: 1700000,
-                    30: 2200000,
-                    36: 3000000,
-                    40: 4500000,
-                    48: 12000000
-                }
-            }
-        };
-
-        function calculateTotal() {
-            const product = document.getElementById('product').value;
-            const size = document.getElementById('size').value;
-            const quality = document.getElementById('quality').value;
-            const quantity = document.getElementById('quantity').value;
-            const total = prices[product][quality][size] * quantity;
-            document.getElementById('total').textContent = `Total: Rp ${total.toLocaleString()}`;
-        }
-
-        function generateWhatsAppLink() {
-            const product = document.getElementById('product').value;
-            const size = document.getElementById('size').value;
-            const quality = document.getElementById('quality').value;
-            const quantity = document.getElementById('quantity').value;
-            const message = document.getElementById('message').value;
-            const address = document.getElementById('address').value;
-            const baseUrl = "https://wa.me/6283197301741";
-            const orderMessage = `Pesanan Rotan Arfa Rotan\n\nJenis: ${product}\nUkuran: ${size}\nJumlah: ${quantity}\nKualitas: ${quality}\n\n---\n\nPesan: ${message}\nAlamat: ${address}\n\n📦 Terima kasih atas pesanan Anda! 😊`;
-            return `${baseUrl}?text=${encodeURIComponent(orderMessage)}`;
-        }
-
-        function handleOrder() {
-            const link = generateWhatsAppLink();
-            window.open(link, '_blank');
-        }
-    </script>
 </head>
 <body class="bg-gray-100">
     <nav class="bg-white shadow">
@@ -170,80 +61,58 @@
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <div class="mb-4">
-                    <label class="block text-gray-700" for="product">
+                    <label class="block text-gray-700" for="produk">
                         Pilih Produk
                     </label>
-                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="product" onchange="calculateTotal()">
-                        <option value="Tikar Rotan Square">
-                            Tikar Rotan Square
-                        </option>
-                        <option value="Tikar Rotan Open">
-                            Tikar Rotan Open
-                        </option>
-                        <option value="Tikar Rotan Sita">
-                            Tikar Rotan Sita
-                        </option>
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="produk" onchange="hitungHarga()">
+                        <option value="Tikar Open">Tikar Open</option>
+                        <option value="Square">Square</option>
+                        <option value="Xita">Xita</option>
+                        <option value="Tikar Close">Tikar Close</option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label class="block text-gray-700" for="size">
+                    <label class="block text-gray-700" for="jenis">
+                        Pilih Jenis
+                    </label>
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="jenis" onchange="hitungHarga()">
+                        <option value="A">A</option>
+                        <option value="AB">AB</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="ukuran">
                         Pilih Ukuran
                     </label>
-                    <div class="grid grid-cols-4 gap-4">
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='14'; calculateTotal();">14 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='16'; calculateTotal();">16 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='18'; calculateTotal();">18 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='20'; calculateTotal();">20 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='24'; calculateTotal();">24 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='25'; calculateTotal();">25 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='30'; calculateTotal();">30 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='36'; calculateTotal();">36 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='40'; calculateTotal();">40 cm</button>
-                        <button class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" onclick="document.getElementById('size').value='48'; calculateTotal();">48 cm</button>
-                    </div>
-                    <input type="hidden" id="size" value="14">
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="ukuran" onchange="hitungHarga()">
+                        <option value="40">40 cm</option>
+                        <option value="45">45 cm</option>
+                        <option value="50">50 cm</option>
+                        <option value="60">60 cm</option>
+                        <option value="70">70 cm</option>
+                        <option value="80">80 cm</option>
+                        <option value="90">90 cm</option>
+                        <option value="100">100 cm</option>
+                        <option value="120">120 cm</option>
+                    </select>
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="quality">
-                        Pilih Kualitas
-                    </label>
-                    <div class="flex flex-wrap">
-                        <label class="mr-4">
-                            <input type="radio" name="quality" value="AB" id="quality" onchange="calculateTotal()" checked>
-                            AB
-                        </label>
-                        <label>
-                            <input type="radio" name="quality" value="BC" id="quality" onchange="calculateTotal()">
-                            BC
-                        </label>
-                    </div>
+                <div id="hasilHarga" class="mt-6 text-center">
+                    <h2 class="text-xl font-semibold">Harga: Rp <span id="harga" class="font-bold"></span></h2>
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700" for="quantity">
-                        Jumlah (barang)
-                    </label>
-                    <input class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="quantity" name="quantity" type="number" value="1" oninput="calculateTotal()"/>
-                </div>
-                <div class="mb-4">
+                <div class="mt-6">
                     <label class="block text-gray-700" for="message">
                         Pesan Tambahan
                     </label>
                     <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="message" name="message"></textarea>
                 </div>
-                <div class="mb-4">
+                <div class="mt-4">
                     <label class="block text-gray-700" for="address">
                         Alamat Lengkap
                     </label>
                     <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="address" name="address"></textarea>
                 </div>
-                <p class="mb-4 text-gray-700" id="total">
-                    Total: Rp 520.000
-                </p>
-                <p class="mb-4 text-xs text-gray-500">
-                    *Harga tidak termasuk ongkos kirim dan dapat berubah sesuai dengan ketersediaan dan kondisi pasar.
-                </p>
-                <button class="w-full btn-primary py-2 px-4 rounded" onclick="handleOrder()" type="button">
-                    Kirim Pesanan
+                <button class="w-full btn-primary py-2 px-4 rounded mt-6" onclick="handleOrder()" type="button">
+                    Beli Sekarang
                 </button>
             </div>
         </div>
@@ -255,5 +124,128 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        const hargaData = {
+            "Tikar Open": {
+                "A": {
+                    40: 1320000,
+                    45: 1485000,
+                    50: 1650000,
+                    60: 1980000,
+                    70: 2625000,
+                    80: 3000000,
+                    90: 3375000,
+                    100: 3750000,
+                    120: 5400000
+                },
+                "AB": {
+                    40: 1200000,
+                    45: 1350000,
+                    50: 1500000,
+                    60: 1800000,
+                    70: 2310000,
+                    80: 2640000,
+                    90: 2970000,
+                    100: 3300000,
+                    120: 4860000
+                }
+            },
+            "Square": {
+                "A": {
+                    40: 900000,
+                    45: 1012000,
+                    50: 1125000,
+                    60: 1350000,
+                    70: 1785000,
+                    80: 2040000,
+                    90: 2295000,
+                    100: 2550000,
+                    120: 3600000
+                }
+            },
+            "Xita": {
+                "A": {
+                    40: 1320000,
+                    45: 1485000,
+                    50: 1650000,
+                    60: 1980000,
+                    70: 2625000,
+                    80: 3120000,
+                    90: 3510000,
+                    100: 3900000,
+                    120: 5580000
+                },
+                "AB": {
+                    40: 1260000,
+                    45: 1417000,
+                    50: 1575000,
+                    60: 1890000,
+                    70: 2520000,
+                    80: 3000000,
+                    90: 3375000,
+                    100: 3750000,
+                    120: 5400000
+                }
+            },
+            "Tikar Close": {
+                "A": {
+                    40: 780000,
+                    45: 877000,
+                    50: 975000,
+                    60: 1170000,
+                    70: 1575000,
+                    80: 1800000,
+                    90: 2025000,
+                    100: 2250000,
+                    120: 3240000
+                },
+                "AB": {
+                    40: 720000,
+                    45: 810000,
+                    50: 900000,
+                    60: 1080000,
+                    70: 1470000,
+                    80: 1680000,
+                    90: 1890000,
+                    100: 2100000,
+                    120: 3060000
+                }
+            }
+        };
+
+        function hitungHarga() {
+            const produk = document.getElementById("produk").value;
+            const jenis = document.getElementById("jenis").value;
+            const ukuran = parseInt(document.getElementById("ukuran").value);
+
+            const harga = hargaData[produk][jenis][ukuran];
+            document.getElementById("harga").innerText = harga.toLocaleString();
+        }
+
+        function generateWhatsAppLink() {
+            const produk = document.getElementById('produk').value;
+            const jenis = document.getElementById('jenis').value;
+            const ukuran = document.getElementById('ukuran').value;
+            const harga = document.getElementById('harga').innerText;
+            const message = document.getElementById('message').value;
+            const address = document.getElementById('address').value;
+            const baseUrl = "https://wa.me/6283197301741";
+            const orderMessage = `Pesanan Rotan Arfa Rotan\n\nJenis: ${produk}\nUkuran: ${ukuran}\nJenis: ${jenis}\nHarga: Rp ${harga}\n\n---\n\nPesan: ${message}\nAlamat: ${address}\n\n📦 Terima kasih atas pesanan Anda! 😊`;
+            return `${baseUrl}?text=${encodeURIComponent(orderMessage)}`;
+        }
+
+        function handleOrder() {
+            const link = generateWhatsAppLink();
+            window.open(link, '_blank');
+        }
+
+        document.getElementById('produk').addEventListener('change', hitungHarga);
+        document.getElementById('jenis').addEventListener('change', hitungHarga);
+        document.getElementById('ukuran').addEventListener('change', hitungHarga);
+
+        // Initial calculation
+        hitungHarga();
+    </script>
 </body>
 </html>
