@@ -96,8 +96,15 @@
                         <option value="120">120 cm</option>
                     </select>
                 </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="jumlah">
+                        Jumlah Pembelian
+                    </label>
+                    <input type="number" id="jumlah" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" value="1" min="1" onchange="hitungHarga()">
+                </div>
                 <div id="hasilHarga" class="mt-6 text-center">
-                    <h2 class="text-xl font-semibold">Harga: Rp <span id="harga" class="font-bold"></span></h2>
+                    <h2 class="text-xl font-semibold">Total Harga: Rp <span id="totalHarga" class="font-bold"></span></h2>
+                    <p class="text-sm text-gray-500">*Harga tidak termasuk ongkir</p>
                 </div>
                 <div class="mt-6">
                     <label class="block text-gray-700" for="message">
@@ -214,24 +221,38 @@
             }
         };
 
+        function formatRupiah(angka) {
+            let rupiah = '';
+            const angkarev = angka.toString().split('').reverse().join('');
+            for (let i = 0; i < angkarev.length; i++) {
+                if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + '.';
+            }
+            return rupiah.split('', rupiah.length - 1).reverse().join('');
+        }
+
         function hitungHarga() {
             const produk = document.getElementById("produk").value;
             const jenis = document.getElementById("jenis").value;
             const ukuran = parseInt(document.getElementById("ukuran").value);
+            const jumlah = parseInt(document.getElementById("jumlah").value);
 
-            const harga = hargaData[produk][jenis][ukuran];
-            document.getElementById("harga").innerText = harga.toLocaleString();
+            const hargaSatuan = hargaData[produk][jenis][ukuran];
+            const totalHarga = hargaSatuan * jumlah;
+
+            const totalHargaFormatted = formatRupiah(totalHarga);
+            document.getElementById("totalHarga").innerText = totalHargaFormatted;
         }
 
         function generateWhatsAppLink() {
             const produk = document.getElementById('produk').value;
             const jenis = document.getElementById('jenis').value;
             const ukuran = document.getElementById('ukuran').value;
-            const harga = document.getElementById('harga').innerText;
+            const jumlah = document.getElementById('jumlah').value;
+            const totalHarga = document.getElementById('totalHarga').innerText;
             const message = document.getElementById('message').value;
             const address = document.getElementById('address').value;
             const baseUrl = "https://wa.me/6283197301741";
-            const orderMessage = `Pesanan Rotan Arfa Rotan\n\nJenis: ${produk}\nUkuran: ${ukuran}\nJenis: ${jenis}\nHarga: Rp ${harga}\n\n---\n\nPesan: ${message}\nAlamat: ${address}\n\n📦 Terima kasih atas pesanan Anda! 😊`;
+            const orderMessage = `Pesanan Rotan Arfa Rotan\n\nJenis: ${produk}\nUkuran: ${ukuran}\nJenis: ${jenis}\nJumlah: ${jumlah}\nTotal Harga: Rp ${totalHarga}\n\n---\n\nPesan: ${message}\nAlamat: ${address}\n\n📦 Terima kasih atas pesanan Anda! 😊\n\n*Harga tidak termasuk ongkir`;
             return `${baseUrl}?text=${encodeURIComponent(orderMessage)}`;
         }
 
@@ -243,6 +264,7 @@
         document.getElementById('produk').addEventListener('change', hitungHarga);
         document.getElementById('jenis').addEventListener('change', hitungHarga);
         document.getElementById('ukuran').addEventListener('change', hitungHarga);
+        document.getElementById('jumlah').addEventListener('change', hitungHarga);
 
         // Initial calculation
         hitungHarga();
