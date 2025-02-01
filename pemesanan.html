@@ -64,11 +64,12 @@
                     <label class="block text-gray-700" for="produk">
                         Pilih Produk
                     </label>
-                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="produk" onchange="hitungHarga()">
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="produk" onchange="updateJenisOptions(); hitungHarga();">
                         <option value="Tikar Open">Tikar Open</option>
                         <option value="Square">Square</option>
                         <option value="Xita">Xita</option>
                         <option value="Tikar Close">Tikar Close</option>
+                        <option value="Kembang Tanjung Bunga">Kembang Tanjung Bunga</option>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -218,6 +219,19 @@
                     100: 2100000,
                     120: 3060000
                 }
+            },
+            "Kembang Tanjung Bunga": {
+                "A": {
+                    40: 1500000,
+                    45: 1650000,
+                    50: 1800000,
+                    60: 2100000,
+                    70: 2800000,
+                    80: 3200000,
+                    90: 3600000,
+                    100: 4000000,
+                    120: 6000000
+                }
             }
         };
 
@@ -228,6 +242,17 @@
                 if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + '.';
             }
             return rupiah.split('', rupiah.length - 1).reverse().join('');
+        }
+
+        function updateJenisOptions() {
+            const produk = document.getElementById("produk").value;
+            const jenisSelect = document.getElementById("jenis");
+
+            if (produk === "Kembang Tanjung Bunga") {
+                jenisSelect.innerHTML = '<option value="A">A</option>';
+            } else {
+                jenisSelect.innerHTML = '<option value="A">A</option><option value="AB">AB</option>';
+            }
         }
 
         function hitungHarga() {
@@ -261,6 +286,7 @@
             window.open(link, '_blank');
         }
 
+        document.getElementById('produk').addEventListener('change', updateJenisOptions);
         document.getElementById('produk').addEventListener('change', hitungHarga);
         document.getElementById('jenis').addEventListener('change', hitungHarga);
         document.getElementById('ukuran').addEventListener('change', hitungHarga);
