@@ -277,7 +277,22 @@
             const message = document.getElementById('message').value;
             const address = document.getElementById('address').value;
             const baseUrl = "https://wa.me/6283197301741";
-            const orderMessage = `Pesanan Rotan Arfa Rotan\n\nJenis: ${produk}\nUkuran: ${ukuran}\nJenis: ${jenis}\nJumlah: ${jumlah}\nTotal Harga: Rp ${totalHarga}\n\n---\n\nPesan: ${message}\nAlamat: ${address}\n\n📦 Terima kasih atas pesanan Anda! 😊\n\n*Harga tidak termasuk ongkir`;
+            const orderMessage = `Pesanan Rotan Arfa Rotan
+
+*Jenis:* ${produk}
+*Ukuran:* ${ukuran} cm
+*Jenis:* ${jenis}
+*Jumlah:* ${jumlah} pcs
+*Total Harga:* Rp ${totalHarga}
+
+---
+
+*Pesan Tambahan:* ${message}
+*Alamat Pengiriman:* ${address}
+
+📦 Terima kasih atas pesanan Anda! 😊
+
+*Harga tidak termasuk ongkir*`;
             return `${baseUrl}?text=${encodeURIComponent(orderMessage)}`;
         }
 
